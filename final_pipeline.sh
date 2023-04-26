@@ -4,7 +4,7 @@ export LD_LIBRARY_PATH=~/CaPTk/1.8.1/squashfs-root/usr/lib:$LD_LIBRARY_PATH
 
 main_folder="insert_the_path"
 atlas_image="insert_the_path/atlastImage.nii.gz"
-deep_medic_model="insert_the_path/CaPTk_Full/1.8.1/data/deepMedic/saved_models/brainTumorSegmentation"
+deep_medic_model="insert_the_path/brainTumorSegmentation"
 
 for subject_id in $(ls -d "$main_folder"/*); do
     for time_point in 0 1 2; do
