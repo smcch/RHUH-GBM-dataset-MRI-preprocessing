@@ -1,4 +1,4 @@
-# RHUH-GBM MRI Preprocessing Repository
+# RHUH-GBM dataset MRI Preprocessing Pipepline
 
 This repository contains the code for preprocessing magnetic resonance imaging (MRI) scans of glioblastomas as described in the following paper:
 
@@ -29,7 +29,6 @@ The code is designed for use on Ubuntu systems and assumes that certain dependen
 ## Expected Folder Structure
 
 The expected folder structure should be as follows:
-
 Main_folder
 ├─ Subject_001
 │ ├─ 0
