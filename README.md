@@ -51,3 +51,24 @@ The preprocessing pipeline consists of the following steps:
 3. Coregister `t1.nii`, `t2.nii.gz`, `flair.nii.gz`, and `adc.nii.gz` to the transformed `t1ce.nii.gz` using `FLIRT`
 4. Perform skull stripping on the coregistered volumes using MRI Synthstrip from Freesurfer
 5. Normalize the intensity of the volumes by z-score using CaPTK
+
+## Citations
+
+If you find this pipeline useful for your academic purposes, please include the following citations:
+
+- DICOM to NiFTI converter: `dcm2niix`, available at https://github.com/rordenlab/dcm2niix/releases/tag/v1.0.20220720
+	- Li X, Morgan PS, Ashburner J, Smith J, Rorden C. The first step for neuroimaging data analysis: DICOM to NIfTI conversion. J Neurosci Methods. 2016;264:47-56. doi:10.1016/j.jneumeth.2016.03.001.
+
+- Registration: `FLIRT` (FMRIB's Linear Image Registration Tool), available at https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL
+	- Jenkinson M, Smith S. A global optimisation method for robust affine registration of brain images. Med Image Anal. 2001;5(2):143-156. doi:10.1016/s1361-8415(01)00036-6.
+	- Jenkinson M, Bannister P, Brady M, Smith S. Improved optimization for the robust and accurate linear registration and motion correction of brain images. Neuroimage. 2002;17(2):825-841. doi:10.1016/s1053-8119(02)91132-8.
+
+- Skull stripping: `MRI Synthstrip`, included in FreeSurfer v7.3.0, available at https://github.com/freesurfer/freesurfer/tree/dev/mri_synthstrip
+	- Hoopes A, Mora JS, Dalca A V, Fischl B, Hoffmann M. SynthStrip: skull-stripping for any brain image. Neuroimage. 2022;260:119474. doi:10.1016/j.neuroimage.2022.119474.
+
+- Cancer Imaging Phenomics Toolkit (`CaPTk`) v1.9.0, available at https://www.nitrc.org/projects/captk/
+	- Davatzikos C, Rathore S, Bakas S, et al. Cancer imaging phenomics toolkit: quantitative imaging analytics for precision diagnostics and predictive modeling of clinical outcome. J Med imaging (Bellingham, Wash). 2018;5(1):011018. doi:10.1117/1.JMI.5.1.011018.
+
+- Segmentation: `DeepMedic`, available at https://github.com/deepmedic/deepmedic
+	- Kamnitsas K, Ledig C, Newcombe VFJ, et al. Efficient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation. Med Image Anal. 2017;36:61-78. doi:10.1016/j.media.2016.10.004.
+
