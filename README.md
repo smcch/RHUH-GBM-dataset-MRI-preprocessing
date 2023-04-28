@@ -52,6 +52,23 @@ The preprocessing pipeline consists of the following steps:
 4. Perform skull stripping on the coregistered volumes using MRI Synthstrip from Freesurfer
 5. Normalize the intensity of the volumes by z-score using CaPTK
 
+## Output Files
+
+The pipeline produces the following output files in NiFTI format:
+
+- `t1.nii.gz`: T1-weighted MRI volume.
+- `t1ce.nii.gz`: T1-weighted MRI volume with contrast enhancement.
+- `t2.nii.gz`: T2-weighted MRI volume.
+- `flair.nii.gz`: Fluid-attenuated inversion recovery (FLAIR) MRI volume.
+- `adc.nii.gz`: Apparent diffusion coefficient (ADC) MRI volume.
+
+In addition, the pipeline generates a file named `segmentations.nii.gz`, which includes three labels:
+
+- `1`: Necrosis.
+- `2`: Peritumoral region.
+- `4`: Enhancing tumor.
+
+
 ## Citations
 
 If you find this pipeline useful for your academic purposes, please include the following citations:
