@@ -68,6 +68,34 @@ In addition, the pipeline generates a file named `segmentations.nii.gz`, which i
 - `2`: Peritumoral region.
 - `4`: Enhancing tumor.
 
+## How to Run and Clone the Pipeline
+
+To run the pipeline, please follow these instructions:
+
+1. Clone the repository to your local machine using the following command:
+    ```
+    git clone https://github.com/yourusername/rhuh-gbm-mri-preprocessing.git
+    ```
+    Replace `yourusername` with your GitHub username.
+
+2. Install the necessary dependencies:
+    - `dcm2niix`
+    - `FSL`
+    - `FreeSurfer v7.3.0`
+    - `CaPTk v1.9.0`
+
+3. Navigate to the `rhuh-gbm-mri-preprocessing` directory and run the `final_pipeline.sh` script:
+    ```
+    cd rhuh-gbm-mri-preprocessing
+    ./final_pipeline.sh
+    ```
+
+Note: The pipeline assumes that your folder structure follows the expected structure mentioned in the README.
+
+To clone the repository using the command line, you will need to have `git` installed on your system. If you do not have `git` installed, you can download it from https://git-scm.com/downloads.
+
+Alternatively, you can also download the repository as a ZIP file by clicking on the green "Code" button on the repository's main page and selecting "Download ZIP".
+
 
 ## Citations
 
