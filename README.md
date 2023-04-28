@@ -78,19 +78,22 @@ To run the pipeline, please follow these instructions:
     ```
     Replace `yourusername` with your GitHub username.
 
-2. Install the necessary dependencies:
-    - `dcm2niix`
-    - `FSL`
-    - `FreeSurfer v7.3.0`
-    - `CaPTk v1.9.0`
+2. Edit the `final_pipeline.sh` script to include the correct paths for the `main_folder`, `atlas_image`, and `deep_medic_model` variables. Open the script using a text editor and change the paths accordingly:
+    ```
+    main_folder="insert_the_path"
+    atlas_image="insert_the_path/atlasImage.nii.gz"
+    deep_medic_model="insert_the_path/brainTumorSegmentation"
+    ```
 
-3. Navigate to the `rhuh-gbm-mri-preprocessing` directory and run the `final_pipeline.sh` script:
+3. Save and close the file.
+
+4. Navigate to the `rhuh-gbm-mri-preprocessing` directory and run the `final_pipeline.sh` script from the Ubuntu terminal:
     ```
     cd rhuh-gbm-mri-preprocessing
     ./final_pipeline.sh
     ```
 
-Note: The pipeline assumes that your folder structure follows the expected structure mentioned in the README.
+Note: The pipeline assumes that your folder structure follows the expected structure mentioned in the README. You may need to install additional dependencies not listed in the README in order for the pipeline to run successfully on your system.
 
 To clone the repository using the command line, you will need to have `git` installed on your system. If you do not have `git` installed, you can download it from https://git-scm.com/downloads.
 
