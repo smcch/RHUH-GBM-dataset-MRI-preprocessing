@@ -4,7 +4,7 @@ This repository contains the code for preprocessing magnetic resonance imaging (
 
 > The Río Hortega University Hospital Glioblastoma Dataset: A Comprehensive Collection of Preoperative, Early Postoperative, and Recurrence MRI Scans (RHUH-GBM)
 > Santiago Cepeda, Sergio García-García, Ignacio Arrese, Francisco Herrero, Trinidad Escudero, Tomás Zamora, Rosario Sarabia. (2023)
-> Preprint available at [arXiv](https://arxiv.org/).
+> Preprint available at [arXiv](https://arxiv.org/abs/2305.00005).
 
 ![readme](https://user-images.githubusercontent.com/87584415/235226079-a62138a8-bd02-4c4c-b35d-8ff026588802.jpg)
 
@@ -51,6 +51,7 @@ The preprocessing pipeline consists of the following steps:
 3. Coregister `t1.nii`, `t2.nii.gz`, `flair.nii.gz`, and `adc.nii.gz` to the transformed `t1ce.nii.gz` using `FLIRT`
 4. Perform skull stripping on the coregistered volumes using MRI Synthstrip from Freesurfer
 5. Normalize the intensity of the volumes by z-score using CaPTK
+6. Tumor subregions segementation by DeepMedic
 
 ## Output Files
 
