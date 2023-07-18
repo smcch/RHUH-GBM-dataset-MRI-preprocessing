@@ -32,9 +32,12 @@ parser.add_argument('-o', '--output_dir', help='Output directory for the results
 args = parser.parse_args()
 
 # Define the paths
+script_dir = os.path.dirname(os.path.abspath(__file__))  # This gives the directory of the script itself
+
+atlas_image = os.path.join(script_dir, 'atlastImage.nii.gz')
+deep_medic_model = os.path.join(script_dir, 'deepMedic', 'saved_models', 'brainTumorSegmentation')
+
 main_folder = args.input_dir
-atlas_image = '/mnt/c/Users/Santiago/PycharmProjects/MRI/atlastImage.nii.gz'
-deep_medic_model='/mnt/c/CaPTk_Full/1.8.1/data/deepMedic/saved_models/brainTumorSegmentation'
 output_dir = args.output_dir
 
 # Ensure output directory exists
