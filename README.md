@@ -9,12 +9,12 @@ This repository contains the code for preprocessing magnetic resonance imaging (
 ![readme](https://user-images.githubusercontent.com/87584415/235226079-a62138a8-bd02-4c4c-b35d-8ff026588802.jpg)
 
 
-The code is designed for use on Ubuntu systems and assumes that certain dependencies are already installed and added to the system path.
+The code is designed for use on Linux and Mac OS and assumes that certain dependencies are already installed and added to the system path.
 
 ## Expected Folder Structure
 ```
 The expected folder structure should be as follows:
-Main_folder
+Input_folder
 ├─ Subject_001
 │ ├─ 0
 │ │ ├─ adc
@@ -82,8 +82,8 @@ To run the pipeline, please follow these instructions:
 2. Install the necessary dependencies:
     - `dcm2niix`
     - `FSL`
-    - `FreeSurfer v7.3.0`
-    - `CaPTk v1.9.0`
+    - `FreeSurfer v7.3.2`
+    - `CaPTk v1.8.0`
 
     You can install these dependencies using your package manager or by following the instructions on their respective websites.
 
@@ -108,6 +108,58 @@ To clone the repository using the command line, you will need to have `git` inst
 
 Alternatively, you can also download the repository as a ZIP file by clicking on the green "Code" button on the repository's main page and selecting "Download ZIP". 
 
+## Command Line Usage
+
+Alternatively, you have the option to utilize an updated version of the pipeline that incorporates SimpleElastix for image coregistration instead of FLIRT.
+
+1. To run DeepMedic via CapTK you should follow some instructions to solve FUSE errors https://cbica.github.io/CaPTk/gs_FAQ.html
+
+``
+#!/bin/bash
+~/CaPTk/${version}/captk --appimage-extract
+export PATH=~/CaPTk/1.8.1/squashfs-root/usr/bin:$PATH
+export LD_LIBRARY_PATH=~/CaPTk/1.8.1/squashfs-root/usr/lib:$LD_LIBRARY_PATH
+``
+
+2. Navigate to the project directory.
+
+``
+cd your-repository
+
+2. Run the pipeline using the following command:
+
+``
+python preprocess_mri.py -i /path_to_input -o /path_to_output
+``
+## GUI Usage
+
+If you prefer a graphical user interface (GUI), you can use the following instructions:
+
+1. Launch the GUI application by running the following command:
+
+``
+python gui.py
+``
+![Sin título](https://github.com/smcch/RHUH-GBM-dataset-MRI-preprocessing/assets/87584415/2a626cca-43e6-4df2-9846-b89dc15ced2c)
+
+1. Use the provided graphical interface to configure the input and output directories.
+
+2. Click the "Run" button to start the pipeline execution.
+
+Please note that both the command line and GUI versions of the pipeline require proper installation and configuration of the dependencies before use.
+
+## Expected output
+Output_folder
+├─ Subject_001
+│ ├─ 0
+│ │ ├─ adc.ni.gz
+│ │ ├─ t1.nii.gz
+│ │ ├─ t1ce.nii.gz
+│ │ ├─ t2.nii.gz
+│ │ └─ flair.nii.gz
+│ │ └─ segmentations.nii.gz
+│ │ └─ peritumor.nii.gz
+│ │ └─ tumor.nii.gz
 
 ## Citations
 
@@ -119,6 +171,9 @@ If you find this pipeline useful for your academic purposes, please include the 
 - Registration: `FLIRT` (FMRIB's Linear Image Registration Tool), available at https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL
 	- Jenkinson M, Smith S. A global optimisation method for robust affine registration of brain images. Med Image Anal. 2001;5(2):143-156. doi:10.1016/s1361-8415(01)00036-6.
 	- Jenkinson M, Bannister P, Brady M, Smith S. Improved optimization for the robust and accurate linear registration and motion correction of brain images. Neuroimage. 2002;17(2):825-841. doi:10.1016/s1053-8119(02)91132-8.
+
+- Resitration: `SimpleElastix`https://simpleelastix.github.io/
+	- K. Marstal, F. Berendsen, M. Staring and S. Klein, "SimpleElastix: A user-friendly, multi-lingual library for medical image registration," International Workshop on Biomedical Image Registration (WBIR), IEEE Conference on Computer Vision and Pattern Recognition Workshops, pp. 574 - 582, July 2016.
 
 - Skull stripping: `MRI Synthstrip`, included in FreeSurfer v7.3.0, available at https://github.com/freesurfer/freesurfer/tree/dev/mri_synthstrip
 	- Hoopes A, Mora JS, Dalca A V, Fischl B, Hoffmann M. SynthStrip: skull-stripping for any brain image. Neuroimage. 2022;260:119474. doi:10.1016/j.neuroimage.2022.119474.
