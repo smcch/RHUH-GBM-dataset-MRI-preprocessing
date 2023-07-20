@@ -108,39 +108,47 @@ To clone the repository using the command line, you will need to have `git` inst
 
 Alternatively, you can also download the repository as a ZIP file by clicking on the green "Code" button on the repository's main page and selecting "Download ZIP". 
 
+## Updated version
+
+Alternatively, you have the option to utilize an updated version of the pipeline that incorporates SimpleElastix, a faster registration method, instead of FLIRT. Additionally, this version includes a function for calculating the apparent diffusion coefficient (ADC) if ADC images are not available, allowing you to use DWI raw files as input.
+
 ## Command Line Usage
 
 Alternatively, you have the option to utilize an updated version of the pipeline that incorporates SimpleElastix for image coregistration instead of FLIRT.
 
 1. To run DeepMedic via CapTK you should follow some instructions to solve FUSE errors https://cbica.github.io/CaPTk/gs_FAQ.html
 
-``
+```
 #!/bin/bash
 ~/CaPTk/${version}/captk --appimage-extract
 export PATH=~/CaPTk/1.8.1/squashfs-root/usr/bin:$PATH
 export LD_LIBRARY_PATH=~/CaPTk/1.8.1/squashfs-root/usr/lib:$LD_LIBRARY_PATH
-``
+```
 
 2. Navigate to the project directory.
 
-``
+```
 cd your-repository
+```
 
 2. Run the pipeline using the following command:
 
-``
+```
 python preprocess_mri.py -i /path_to_input -o /path_to_output
-``
+```
 ## GUI Usage
 
 If you prefer a graphical user interface (GUI), you can use the following instructions:
 
 1. Launch the GUI application by running the following command:
 
-``
+```
 python gui.py
-``
+```
+
+
 ![Sin título](https://github.com/smcch/RHUH-GBM-dataset-MRI-preprocessing/assets/87584415/2a626cca-43e6-4df2-9846-b89dc15ced2c)
+
 
 1. Use the provided graphical interface to configure the input and output directories.
 
@@ -149,6 +157,7 @@ python gui.py
 Please note that both the command line and GUI versions of the pipeline require proper installation and configuration of the dependencies before use.
 
 ## Expected output
+```
 Output_folder
 ├─ Subject_001
 │ ├─ 0
@@ -160,6 +169,7 @@ Output_folder
 │ │ └─ segmentations.nii.gz
 │ │ └─ peritumor.nii.gz
 │ │ └─ tumor.nii.gz
+```
 
 ## Citations
 
